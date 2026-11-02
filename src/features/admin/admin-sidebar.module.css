@@ -1,0 +1,102 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  min-height: 100svh;
+  border-right: var(--hairline) solid var(--rule);
+  background: var(--surface);
+  padding: 1.25rem 0.75rem;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: grid;
+  gap: 0.25rem;
+  padding-inline: 0.5rem;
+}
+
+.brandLink {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.email {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.extra {
+  margin-top: auto;
+  display: grid;
+  gap: 0.15rem;
+  border-top: var(--hairline) solid var(--rule-soft);
+  padding-top: 1rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.item:hover {
+  color: var(--text);
+  background: var(--muted-fg);
+}
+
+.itemActive {
+  color: var(--text);
+  background: var(--muted-fg);
+}
+
+.extArrow {
+  margin-left: auto;
+  opacity: 0.6;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    min-height: 0;
+    border-right: none;
+    border-bottom: var(--hairline) solid var(--rule);
+    padding: 0.6rem 0.9rem;
+    overflow-x: auto;
+  }
+
+  .brand {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .extra {
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0;
+  }
+}

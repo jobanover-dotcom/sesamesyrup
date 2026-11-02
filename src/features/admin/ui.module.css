@@ -1,0 +1,428 @@
+/* Admin UI primitives. Plain backgrounds, minimal motion, clear feedback. */
+
+.form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: var(--hairline) solid var(--rule);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.formFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  border-top: var(--hairline) solid var(--rule-soft);
+  padding-top: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: var(--hairline) solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--text-muted);
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.hint {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.primaryButton,
+.ghostButton,
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.primaryButton {
+  background: var(--accent);
+  color: var(--bg);
+  border: var(--hairline) solid var(--accent);
+}
+
+.primaryButton:hover {
+  opacity: 0.88;
+}
+
+.ghostButton {
+  background: transparent;
+  color: var(--text);
+  border: var(--hairline) solid var(--rule);
+}
+
+.ghostButton:hover {
+  background: var(--muted-fg);
+}
+
+.linkButton {
+  padding: 0.3rem 0.5rem;
+  border: none;
+  color: var(--text-muted);
+  background: none;
+}
+
+.linkButton:hover {
+  color: var(--text);
+}
+
+.primaryButton:disabled,
+.ghostButton:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.statusOk,
+.statusError {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--step--1);
+}
+
+.statusOk {
+  color: var(--text);
+  background: var(--success-background);
+  border: var(--hairline) solid rgba(74, 222, 128, 0.35);
+}
+
+.statusError {
+  color: var(--text);
+  background: var(--danger-background);
+  border: var(--hairline) solid rgba(248, 113, 113, 0.35);
+}
+
+.statusInline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+/* Tables ---------------------------------------------------------------- */
+
+.tableWrap {
+  overflow-x: auto;
+  border: var(--hairline) solid var(--rule);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step-0);
+}
+
+.table th {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: var(--hairline) solid var(--rule);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 0.75rem 1rem;
+  border-bottom: var(--hairline) solid var(--rule-soft);
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.tableActions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border: var(--hairline) solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.badgeLive {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+.toggleButton {
+  padding: 0.35rem 0.7rem;
+  border: var(--hairline) solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.toggleButton[data-on] {
+  color: var(--text);
+  border-color: var(--text);
+  background: var(--muted-fg);
+}
+
+/* Uploads --------------------------------------------------------------- */
+
+.uploadRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.fileInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.uploadList {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.uploadListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.uploadName {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text);
+  max-width: 22rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.smallInput {
+  padding: 0.35rem 0.55rem;
+  border: var(--hairline) solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--step--1);
+}
+
+/* Technology picker ------------------------------------------------------ */
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+
+.techGroup {
+  border: var(--hairline) solid var(--rule-soft);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.techGroup legend {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-inline: 0.35rem;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--step--1);
+  cursor: pointer;
+}
+
+.checkItem input {
+  accent-color: currentColor;
+}
+
+/* Screenshots list -------------------------------------------------------- */
+
+.screenshotList {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.screenshotRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.smallInput {
+  flex: 1;
+}
+
+/* Stat cards -------------------------------------------------------------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1rem;
+}
+
+.statCard {
+  border: var(--hairline) solid var(--rule);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  padding: 1.2rem 1.3rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.statValue {
+  font-size: var(--step-3);
+  font-family: var(--font-display);
+  line-height: 1;
+}
+
+/* Page scaffolding -------------------------------------------------------- */
+
+.pageHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+}
+
+.pageSubtitle {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sectionBlock {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: var(--hairline) solid var(--rule);
+  padding-bottom: 0.5rem;
+}
+
+.gridTwo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.errorNote {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border: var(--hairline) solid rgba(248, 113, 113, 0.35);
+  background: var(--danger-background);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--step--1);
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

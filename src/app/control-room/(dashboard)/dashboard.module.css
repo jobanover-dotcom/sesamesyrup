@@ -1,0 +1,54 @@
+.shell {
+  display: flex;
+  min-height: 100svh;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  border-bottom: var(--hairline) solid var(--rule);
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.logout {
+  padding: 0.4rem 0.8rem;
+  border: var(--hairline) solid var(--rule);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background: var(--muted-fg);
+}
+
+.content {
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  width: min(68rem, 100%);
+  margin-inline: auto;
+}
+
+@media (max-width: 900px) {
+  .shell {
+    flex-direction: column;
+  }
+}

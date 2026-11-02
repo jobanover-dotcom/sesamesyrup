@@ -1,0 +1,141 @@
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  margin-bottom: clamp(1rem, 4vh, 2.5rem);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding: 0.75rem var(--page-pad);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.monogram {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: var(--hairline) solid var(--rule);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.brandName {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--text);
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Floating glass treatment appears once the page scrolls. */
+.masthead.scrolled .inner {
+  margin-top: 0.75rem;
+  border: var(--hairline) solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass-fill);
+  box-shadow: 0 12px 40px var(--shadow);
+  width: min(100%, calc(var(--page-max) - 2 * var(--page-pad)));
+  padding-inline: clamp(0.9rem, 2vw, 1.6rem);
+
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  }
+}
+
+.menuButton {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: var(--hairline) solid var(--rule);
+  border-radius: 50%;
+}
+
+.drawer {
+  border-top: var(--hairline) solid var(--rule-soft);
+}
+
+.drawerLink {
+  display: block;
+  padding: 0.9rem var(--page-pad);
+  border-bottom: var(--hairline) solid var(--rule-soft);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.drawerFooter {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.9rem var(--page-pad);
+}
+
+@media (max-width: 860px) {
+  .links {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-grid;
+  }
+}
+
+@media (min-width: 861px) {
+  .drawer,
+  .menuButton {
+    display: none;
+  }
+}

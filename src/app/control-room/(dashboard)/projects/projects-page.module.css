@@ -1,0 +1,25 @@
+.titleCell {
+  font-weight: 500;
+  display: block;
+}
+
+.slugCell {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.preview {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.previewMissing {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--danger);
+  font-family: var(--font-mono);
+}
